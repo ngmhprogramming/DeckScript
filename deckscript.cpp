@@ -4,21 +4,32 @@ using namespace std;
 map<string, long long> ints;
 map<string, bool> bools;
 map<string, float> floats;
-string arg1, arg2;
+map<string, map<string, long long>> decks;
+string argS, argS2, argS3;
+long long argLL, argLL2;
+float argF;
 int main(){
   freopen("vars.dks", "r", stdin);
   while(!cin.eof()){
-    cin >> arg1;
+    cin >> argS;
     // Declaring an integer
-    if(arg1 == "NUM"){
-      cin >> arg1 >> arg2;
-      ints[arg1] = stoll(arg2);
-    } else if(arg1 == "BOOL"){
-      cin >> arg1 >> arg2;
-      bools[arg1] = stoi(arg2);
-    } else if(arg1 == "FLOAT"){
-      cin >> arg1 >> arg2;
-      floats[arg1] = stof(arg2);
+    if(argS == "NUM"){
+      cin >> argS >> argLL;
+      ints[argS] = argLL;
+    } else if(argS == "BOOL"){
+      cin >> argS >> argLL;
+      bools[argS] = argLL;
+    } else if(argS == "FLOAT"){
+      cin >> argS >> argF;
+      floats[argS] = argF;
+    } else if(argS == "DECK"){
+      cin >> argS >> argS2;
+      freopen(argS2.c_str(), "r", stdin);
+      cin >> argLL;
+      for(long long i = 0; i < argLL; i++){
+        cin >> argS2 >> argLL2;
+        decks[argS][argS2] = argLL2;
+      }
     }
   }
   /* See number variables
@@ -31,9 +42,9 @@ int main(){
     cout<<(*it).first<<" "<<(*it).second<<endl;
   }
   */
-  // See float variables
+  /* See float variables
   for(map<string, float>::iterator it = floats.begin(); it != floats.end(); it++){
     cout<<(*it).first<<" "<<(*it).second<<endl;
   }
-  //
+  */
 }
