@@ -4,7 +4,7 @@ using namespace std;
 map<string, long long> ints;
 map<string, bool> bools;
 map<string, float> floats;
-map<string, map<string, long long>> decks;
+map<string, map<string, long long> > decks;
 string argS, argS2, argS3;
 long long argLL, argLL2;
 float argF;
@@ -45,6 +45,14 @@ int main(){
   /* See float variables
   for(map<string, float>::iterator it = floats.begin(); it != floats.end(); it++){
     cout<<(*it).first<<" "<<(*it).second<<endl;
+  }
+  */
+  /* See deck variables
+  for(map<string, map<string, long long> >::iterator it = decks.begin(); it != decks.end(); it++){
+    cout<<(*it).first<<endl;
+    for(map<string, long long>::iterator itt = (*it).second.begin(); itt != (*it).second.end(); itt++){
+      cout<<(*itt).first<<" "<<(*itt).second<<endl;
+    }
   }
   */
 }
